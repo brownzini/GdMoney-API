@@ -1,11 +1,19 @@
 import { Router } from "express";
+import User from "firebase/models/User";
+
+import { getUsers } from '../../../../firebase/services/User';
 
 const usersRoutes = Router();
 
 usersRoutes.get("/profile", (req, res) => {
-    res.status(200).json({
-      name: "Funcionoukkkkk"
-    })
+    const users: User[] = []; 
+
+    getUsers().then(resp => 
+      res.status(200).json({
+        users: resp
+      })
+    );
+
 });
 
 export { usersRoutes };
