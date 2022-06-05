@@ -2,8 +2,8 @@ import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 
-import { AppError } from "./src/shared/errors/AppError";
-import { router } from "./src/shared/infra/http/routes";
+import { AppError } from "./shared/errors/AppError";
+import { router } from "./shared/infra/http/routes";
 
 const app = express();
 
