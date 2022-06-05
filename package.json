@@ -8,7 +8,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "test": "NODE_ENV=test jest --runInBand --detectOpenHandles",
-    "start": "node dist/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
