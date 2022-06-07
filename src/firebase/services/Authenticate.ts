@@ -1,11 +1,11 @@
 import {
 	collection,
+	getDocs,
 	addDoc,
 	doc,
+	deleteDoc,
 	updateDoc,
 	getDoc,
-	getDocs,
-	deleteDoc,
 } from 'firebase/firestore';
 
 import { db } from '../firebase';

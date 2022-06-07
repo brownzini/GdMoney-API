@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import { getUsers } from 'firebase/services/User';
+import { getUsers } from '../../../firebase/services/Users';
 
 const listUserController = async(req:Request, res:Response): Promise<Response> => {
     try { 

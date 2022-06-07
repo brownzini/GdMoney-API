@@ -10,8 +10,6 @@ import {
 
 import { db } from '../firebase';
 
-const userColletionRef = collection(db, 'users');
-
 type RequestCreate = {
 	id: string;
 	username: string;
@@ -31,6 +29,8 @@ type RequestUpdate = {
 	wallet_address?: string;
 	refresh_token?: string;
 }
+
+const userColletionRef = collection(db, 'users');
 
 export const getUserPerName = async (username: string) => {
 	const data = await getDocs(userColletionRef);

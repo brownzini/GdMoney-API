@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import { updateUser } from 'firebase/services/User';
+import { updateUser } from '../../../firebase/services/Users';
 
 const updateUserController = async(req:Request, res:Response): Promise<Response> =>{
     const id = req.params.id;

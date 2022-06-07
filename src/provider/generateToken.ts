@@ -1,7 +1,7 @@
 import { sign } from "jsonwebtoken"
 import generateRefreshToken from "./generateRefreshToken";
 import auth from "../config/auth"
-import { updateUser } from "firebase/services/User";
+import { updateUser } from "../firebase/services/Users";
 
 const generateToken = async(id: string, type?: string):Promise<string> => {
     const token = sign({}, auth.secret_token, {

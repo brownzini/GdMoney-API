@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
 import { Request, Response } from 'express';
-import { getRefreshToken, updateRefreshToken } from "firebase/services/Authenticate"
-import generateToken from "provider/generateToken"
+import { getRefreshToken, updateRefreshToken } from '../../../../firebase/services/Authenticate';
+
+import generateToken from "../../../../provider/generateToken"
 
 const refreshToken = async(req:Request, res:Response): Promise<Response> => {
     const { id_refresh_token } = req.body;

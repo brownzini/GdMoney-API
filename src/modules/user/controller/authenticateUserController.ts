@@ -1,7 +1,8 @@
 import { compare } from "bcryptjs";
 import { Request, Response } from 'express';
-import { getUserPerName } from 'firebase/services/User';
-import generateToken from 'provider/generateToken';
+import { getUserPerName } from "../../../firebase/services/Users";
+
+import generateToken from '../../../provider/generateToken';
 
 const authenticateUserController = async(req:Request, res:Response): Promise<Response> => {
     const { username, password } = req.body;

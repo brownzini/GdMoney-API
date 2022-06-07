@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUserProfile } from 'firebase/services/User';
+import { getUserProfile } from '../../../firebase/services/Users';
 
 const listProfileUserController = async(req:Request, res:Response): Promise<Response> => {
     const id = req.params.id;
@@ -10,7 +10,7 @@ const listProfileUserController = async(req:Request, res:Response): Promise<Resp
             username: resp.username,
             password: resp.password,
             isAdmin: resp.isAdmin,
-            logged: resp.logged,
+            islogged: resp.islogged,
             wallet_address: resp.wallet_address,
             refresh_token: resp.refresh_token
         }).send();

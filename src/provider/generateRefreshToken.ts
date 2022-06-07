@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { addRefreshToken } from "firebase/services/Authenticate";
+import { addRefreshToken } from "../firebase/services/Authenticate";
 
 const generateRefreshToken = async(userId: string):Promise<string> => {
     const expiresIn = dayjs().add(3, "minutes").unix();

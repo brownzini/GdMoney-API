@@ -1,7 +1,7 @@
 import { verify } from "jsonwebtoken";
 import { NextFunction, Request, Response } from "express";
 import auth from "../../../config/auth";
-import { getUserProfile } from "firebase/services/User";
+import { getUserProfile } from "../../../firebase/services/Users";
 
 export async function ensureAuthenticated(request: Request, response: Response, next: NextFunction) {
     const authToken = request.headers.authorization

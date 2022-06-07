@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { addUser } from 'firebase/services/User';
+
 import { hash } from "bcryptjs";
+import { addUser } from '../../../firebase/services/Users';
 
 const createUserController = async(req:Request, res:Response): Promise<Response> =>{
     const data = req.body;

@@ -2,8 +2,9 @@
 import { verify } from "jsonwebtoken";
 import { Request, Response } from "express";
 import auth from "../../../../config/auth"; 
-import { getUserProfile, updateUser } from "firebase/services/User";
-import { deleteRT } from "firebase/services/Authenticate";
+import { getUserProfile, updateUser } from "../../../../firebase/services/Users";
+import { deleteRT } from "../../../../firebase/services/Authenticate";
+
 
 export default async function logoutUser(request: Request, response: Response) {
     const authToken = request.headers.authorization

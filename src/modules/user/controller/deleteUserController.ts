@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import { deleteUser } from 'firebase/services/User';
+import { deleteUser } from '../../../firebase/services/Users';
 
 const deleteUserController = async(req:Request, res:Response): Promise<Response> => {
     const id = req.params.id;
