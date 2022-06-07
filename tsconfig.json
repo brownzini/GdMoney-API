@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
       "target": "es5",
+      "typeRoots" : ["./src/types", "./node_modules/@types"],
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
       "module": "commonjs",
