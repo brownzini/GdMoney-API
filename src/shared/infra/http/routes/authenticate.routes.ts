@@ -8,9 +8,12 @@ import { ensureAuthenticated } from "@shared/infra/middleware/ensureAuthenticate
 const authenticateRoutes = Router();
 
 /***  Authenticate User *****/
-authenticateRoutes.post("/login", (req, res) => {
-   authenticateUserController(req, res)
-});
+authenticateRoutes.post(
+   "/login", 
+   (req, res) => {
+      authenticateUserController(req, res)
+   }
+);
 
 authenticateRoutes.post(
    "/refresh-token", 
@@ -20,7 +23,8 @@ authenticateRoutes.post(
    }
 );
 
-authenticateRoutes.post("/logout", 
+authenticateRoutes.post(
+   "/logout", 
    ensureAuthenticated, 
    (req, res) => {
       logoutUser(req, res)
