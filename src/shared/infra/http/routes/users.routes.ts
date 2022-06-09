@@ -6,16 +6,9 @@ import createUserController from "../../../../modules/user/controller/createUser
 import deleteUserController from "../../../../modules/user/controller/deleteUserController";
 import listProfileUserController from "../../../../modules/user/controller/listProfileUserController";
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
-import getBalanceUserController from "../../../../modules/user/controller/getBalanceUserController";
+import getBnbBalanceUserController from "../../../../modules/user/controller/getBnbBalanceUserController";
 
 const usersRoutes = Router();
-
-usersRoutes.get(
-  "/profile/getbalance/:id", 
-  (req, res) => {
-    getBalanceUserController(req, res)
-  }
-);
 
 //List all users - GET [OK]
 usersRoutes.get(
@@ -58,6 +51,14 @@ usersRoutes.delete(
   ensureAuthenticated, 
   (req, res) => {
     deleteUserController(req, res)
+  }
+);
+
+/***************** BLOCKCHAIN  *******************/
+usersRoutes.get(
+  "/profile/getbalancebnb/:id", 
+  (req, res) => {
+    getBnbBalanceUserController(req, res)
   }
 );
 
