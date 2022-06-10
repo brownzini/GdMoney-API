@@ -6,7 +6,6 @@ import confirmPayment from "../../../../modules/persistence/confirmPayment";
 
 const persistenceRoutes = Router();
 
-/***  Authenticate User *****/
 persistenceRoutes.post(
    "/request", 
    (req, res) => {
