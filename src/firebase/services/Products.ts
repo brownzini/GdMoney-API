@@ -17,6 +17,7 @@ type Products = {
     price: number;
 	user_id:string;
 	status?:boolean;
+	forSale:boolean;
 }
 
 const userColletionRef = collection(db, 'products');
@@ -49,6 +50,7 @@ export const getSpecificProduct = async (id: string): Promise<Products> => {
         price: collec.data().price,
 		user_id: collec.data().user_id,
 		status: collec.data().status,
+		forSale: collec.data().forSale,
 	};
 
 	return data;

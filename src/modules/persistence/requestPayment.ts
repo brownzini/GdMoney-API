@@ -8,8 +8,12 @@ const requestPayment = async(req:Request, res:Response) => {
     const fraction = 1000000000000000000;
     
     const { from, price } = req.body;
+    
+    const wallet_address = (req.body.wallet_address === undefined) 
+                               ? auth.wallet_address_api 
+                               : req.body.wallet_address;
 
-    const urlDetailsTransaction = detailsTransaction(auth.wallet_address_api.toLowerCase(), auth.binance_api_key)
+    const urlDetailsTransaction = detailsTransaction(wallet_address.toLowerCase(), auth.binance_api_key);
 
     api.get(urlDetailsTransaction, (error, response, body) => {
         if(error) { 
@@ -25,7 +29,7 @@ const requestPayment = async(req:Request, res:Response) => {
             return res.status(400).json('No transaction found');  
         }
 
-        if (Number(result.value)/fraction !== price) {
+        if (Number(result.value)/fraction < price) {
             return res.status(400).json('Invalid price');  
         }
 

@@ -11,7 +11,8 @@ const listSpecificProductController = async(req:Request, res:Response): Promise<
             img_url: resp.img_url,
             price: resp.price,
             user_id: resp.user_id,
-            status: resp.status
+            status: resp.status,
+            forSale: resp.forSale,
         }).send();
       });
     } catch (err) {
