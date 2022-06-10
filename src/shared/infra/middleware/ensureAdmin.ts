@@ -32,5 +32,5 @@ export async function ensureAdmin(
     return response.status(401).json({
         message: "Token is invalid or expired"
     })
-  }  
+  } 
 }

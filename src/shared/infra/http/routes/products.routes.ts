@@ -5,12 +5,14 @@ import createProductController from "../../../../modules/products/controller/cre
 import updateProductController from "../../../../modules/products/controller/updateProductController";
 
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
+import { ensureAdmin } from "@shared/infra/middleware/ensureAdmin";
 
 const productsRoutes = Router();
 
 productsRoutes.get(
   "/", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
     listAllProductsController(req, res)
   }
@@ -19,6 +21,7 @@ productsRoutes.get(
 productsRoutes.get(
   "/:id", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
     listSpecificProductController(req, res)
   }
@@ -27,6 +30,7 @@ productsRoutes.get(
 productsRoutes.post(
   "/add", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
     createProductController(req, res)
   }
@@ -35,6 +39,7 @@ productsRoutes.post(
 productsRoutes.put(
   "/update/:id", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
     updateProductController(req, res)
   }

@@ -6,12 +6,14 @@ import updateCategoryController from "../../../../modules/categories/controller/
 import deleteCategoryController from "../../../../modules/categories/controller/deleteCategoryController";
 
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
+import { ensureAdmin } from "@shared/infra/middleware/ensureAdmin";
 
 const categoriesRoutes = Router();
 
 categoriesRoutes.get(
   "/", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
     listAllCategoriesController(req, res)
   }
@@ -20,6 +22,7 @@ categoriesRoutes.get(
 categoriesRoutes.get(
   "/:id", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
       listSpecificCategoryController(req, res)
   }
@@ -28,6 +31,7 @@ categoriesRoutes.get(
 categoriesRoutes.post(
   "/add", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
       createCategoryController(req, res)
   }
@@ -36,6 +40,7 @@ categoriesRoutes.post(
 categoriesRoutes.put(
   "/update/:id", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
       updateCategoryController(req, res)
   }
@@ -44,6 +49,7 @@ categoriesRoutes.put(
 categoriesRoutes.delete(
   "/delete/:id", 
   ensureAuthenticated,
+  ensureAdmin,
   (req, res) => {
       deleteCategoryController(req, res)
   }

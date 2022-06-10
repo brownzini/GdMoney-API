@@ -8,6 +8,7 @@ const persistenceRoutes = Router();
 
 persistenceRoutes.post(
    "/request", 
+   ensureAuthenticated,
    (req, res) => {
       requestPayment(req, res)
    }
@@ -15,10 +16,10 @@ persistenceRoutes.post(
 
 persistenceRoutes.post(
    "/confirm", 
+   ensureAuthenticated, 
    (req, res) => {
       confirmPayment(req, res)
    }
 );
-
 
 export { persistenceRoutes }
