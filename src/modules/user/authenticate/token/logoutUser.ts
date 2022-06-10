@@ -27,7 +27,7 @@ export default async function logoutUser(request: Request, response: Response) {
             refresh_token: ""
          });
         updateUser(data);
-        return response.status(200).json('Updated');
+        return response.status(200).json('Success');
     } catch(err) {
         return response.status(401).json({
             message: "Token is invalid or expired"
