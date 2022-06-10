@@ -3,7 +3,7 @@ import { getAllProducts } from '../../../firebase/services/Products';
 
 const listAllProductsController = async(req: Request, res: Response): Promise<Response> => {
     try { 
-        getAllProducts().then(resp => {
+        await getAllProducts().then(resp => {
           return res.status(200).json({ products: resp }).send();
         });
       } catch (err) {

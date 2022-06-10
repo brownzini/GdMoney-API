@@ -32,6 +32,23 @@ type RequestUpdate = {
 
 const userColletionRef = collection(db, 'users');
 
+export const getUsers = async ():Promise<RequestCreate[]> => {
+	const data = await getDocs(userColletionRef);
+	const users = [];
+    data.docs.map(collec => {
+		users.push({
+			id: collec.id,
+			username: collec.data().username,
+			password: collec.data().password,
+			isAdmin: collec.data().isAdmin,
+			islogged: collec.data().islogged,
+			wallet_address: collec.data().wallet_address,
+			refresh_token: collec.data().refresh_token,
+		})
+	});
+	return users;
+};
+
 export const getUserPerName = async (username: string) => {
 	const data = await getDocs(userColletionRef);
 	const users = [];
@@ -49,23 +66,6 @@ export const getUserPerName = async (username: string) => {
 		}
 	});
 	return users[0];
-};
-
-export const getUsers = async () => {
-	const data = await getDocs(userColletionRef);
-	const users = [];
-    data.docs.map(collec => {
-		users.push({
-			id: collec.id,
-			username: collec.data().username,
-			password: collec.data().password,
-			isAdmin: collec.data().isAdmin,
-			islogged: collec.data().islogged,
-			wallet_address: collec.data().wallet_address,
-			refresh_token: collec.data().refresh_token,
-		})
-	});
-	return users;
 };
 
 export const getUserProfile = async (id: string): Promise<RequestUpdate> => {

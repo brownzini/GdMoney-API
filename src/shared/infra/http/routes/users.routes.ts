@@ -54,9 +54,9 @@ usersRoutes.delete(
   }
 );
 
-/***************** BLOCKCHAIN  *******************/
+/***************** BLOCKCHAIN USER *******************/
 usersRoutes.get(
-  "/profile/getbalancebnb/:id", 
+  "/profile/getbalancebnb/:id",
   (req, res) => {
     getBnbBalanceUserController(req, res)
   }

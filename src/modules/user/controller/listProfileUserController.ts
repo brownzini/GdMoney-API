@@ -4,7 +4,7 @@ import { getUserProfile } from '../../../firebase/services/Users';
 const listProfileUserController = async(req:Request, res:Response): Promise<Response> => {
     const id = req.params.id;
     try { 
-     await getUserProfile(id).then(resp => {
+      await getUserProfile(id).then(resp => {
         return res.status(200).json({
             id: resp.id,
             username: resp.username,

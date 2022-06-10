@@ -11,10 +11,10 @@ const updateUserController = async(req:Request, res:Response): Promise<Response>
 
     try { 
       updateUser(data).then(resp => {
-        return res.status(200).send()
+        return res.status(200).send();
       })
     } catch (err) {
-        return res.status(404).send()
+        return res.status(404).json('User not found');
     }
 }
 
