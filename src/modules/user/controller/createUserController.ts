@@ -17,10 +17,10 @@ const createUserController = async(req:Request, res:Response): Promise<Response>
 
     try { 
       addUser(data).then(resp => {
-        return res.status(200).send()
+        return res.status(200).json({description: 'Created'});
       })
     } catch (err) {
-      return res.status(404).send()
+      return res.status(400).json({description: 'User already exists'});
     }
 }
 

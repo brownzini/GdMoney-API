@@ -14,10 +14,10 @@ const createProductController = async(req:Request, res:Response): Promise<Respon
 
     try { 
       addProduct(data).then(resp => {
-        return res.status(200).send();
+        return res.status(200).json('Created');
       });
     } catch (err) {
-      return res.status(404).send();
+      return res.status(404).json('Error in creating product');
     }
 }
 

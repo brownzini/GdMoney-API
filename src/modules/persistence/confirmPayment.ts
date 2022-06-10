@@ -21,7 +21,6 @@ const confirmPayment = (req:Request, res:Response) => {
         if (count === true) { 
             return res.status(400).json('Error in operation');
         }
-    
         return res.status(200).json("Success in operation");
     },3000)
 }

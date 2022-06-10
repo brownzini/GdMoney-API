@@ -9,17 +9,17 @@ const authenticateRoutes = Router();
 
 /***  Authenticate User *****/
 authenticateRoutes.post(
-   "/login", 
-   (req, res) => {
-      authenticateUserController(req, res)
-   }
-);
-
-authenticateRoutes.post(
    "/refresh-token", 
    ensureAuthenticated, 
    (req, res) => {
       refreshToken(req, res)
+   }
+);
+
+authenticateRoutes.post(
+   "/login", 
+   (req, res) => {
+      authenticateUserController(req, res)
    }
 );
 

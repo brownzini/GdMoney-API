@@ -18,7 +18,7 @@ const refreshToken = async(req:Request, res:Response): Promise<Response> => {
     const refreshTokenExpired = dayjs().isAfter(dayjs.unix(rt.expiresIn));
 
     if (refreshTokenExpired) {
-        const expiresIn = dayjs().add(3, "minutes").unix();
+        const expiresIn = dayjs().add(30, "minutes").unix();
         updateRefreshToken(expiresIn, id_refresh_token);
     }
 

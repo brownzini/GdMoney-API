@@ -16,7 +16,7 @@ type RequestCreate = {
 	password: string;
 	isAdmin?: boolean;
 	islogged?: boolean;
-	wallet_address: string;
+	wallet_address?: string;
 	refresh_token?: string;
 }
 
