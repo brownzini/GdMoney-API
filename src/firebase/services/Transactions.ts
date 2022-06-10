@@ -1,10 +1,8 @@
 import {
 	collection,
-	getDocs,
 	addDoc,
 	doc,
 	deleteDoc,
-	updateDoc,
 	getDoc,
 } from 'firebase/firestore';
 
@@ -41,13 +39,6 @@ export const getAllTransactions = async (id_refresh_token: string):Promise<Trans
 
 export const addTransaction = async (data:Transaction) => {
 	await addDoc(transactionColletionRef, data);
-};
-
-export const updateTransaction = async (expiresIn: number, id_refresh_token: string) => {
-	const rtDoc = doc(db, 'transaction_history', id_refresh_token);
-	await updateDoc(rtDoc, {
-		expiresIn,
-	});
 };
 
 export const deleteTransaction = async (id: string) => {

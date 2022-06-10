@@ -11,7 +11,7 @@ const updateProductController = async(req:Request, res:Response): Promise<Respon
 
     try {
       updateProduct(data).then(resp => {
-        return res.status(200).send();
+        return res.status(200).json('Updated category');
       })
     } catch (err) {
         return res.status(404).json('Product not found');

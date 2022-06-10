@@ -91,6 +91,7 @@ export const addUser = async (data: RequestCreate) => {
 
 export const updateUser = async (data: RequestUpdate) => {
 	const userDoc = doc(db, 'users', data.id);
+	delete data.id;
 	await updateDoc(userDoc, data);
 };
 

@@ -51,10 +51,11 @@ export const addCategory = async (data: Categories) => {
 
 export const updateCategory = async (data: Categories) => {
 	const categoryDoc = doc(db, 'categories', data.id);
+    delete data.id;
 	await updateDoc(categoryDoc, data);
 };
 
-export const deleteTransaction = async (id: string) => {
+export const deleteCategory = async (id: string) => {
 	const categoryDoc = doc(db, 'categories', id);
 	await deleteDoc(categoryDoc);
 };

@@ -60,5 +60,6 @@ export const addProduct = async (data: Products) => {
 
 export const updateProduct = async (data: Products) => {
 	const productDoc = doc(db, 'products', data.id);
+	delete data.id;
 	await updateDoc(productDoc, data);
 };
