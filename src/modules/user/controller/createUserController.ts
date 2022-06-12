@@ -11,7 +11,7 @@ const createUserController = async(req:Request, res:Response): Promise<Response>
       password: password_encrypted,
       islogged: false,
       isAdmin: false,
-      wallet_address: data.wallet_address,
+      wallet_address: "",
       refresh_token: "",
     });
 
