@@ -10,13 +10,13 @@ Typescript
 Firebase
 
 ## 🚀 Starting
-Rodar o servidor
+Run the server
 ```bash
 npm run dev
 # ou
 yarn dev
 ```
-Abra em [http://localhost:3000](http://localhost:3000)
+Open in [http://localhost:3000](http://localhost:3000)
 
 ## 📚 [Documentation]
 
