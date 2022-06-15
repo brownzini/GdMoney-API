@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUserProfile } from 'firebase/services/Users';
+import { getUserProfile } from '../../../firebase/services/Users';
 import { getProductsPerCategory } from '../../../firebase/services/Products';
 
 const listProductsByCategory = async(req: Request, res: Response): Promise<Response> => {
