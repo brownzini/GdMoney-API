@@ -12,7 +12,6 @@ const categoriesRoutes = Router();
 
 categoriesRoutes.get(
   "/", 
-  ensureAuthenticated,
   (req, res) => {
     listAllCategoriesController(req, res)
   }
@@ -20,7 +19,6 @@ categoriesRoutes.get(
 
 categoriesRoutes.get(
   "/:id", 
-  ensureAuthenticated,
   (req, res) => {
       listSpecificCategoryController(req, res)
   }
