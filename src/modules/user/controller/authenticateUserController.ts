@@ -10,7 +10,7 @@ const authenticateUserController = async(req:Request, res:Response): Promise<Res
       const user = await getUserPerName(username);
  
       if (user === undefined) {
-          throw new Error("Invalid username or password");
+          return res.status(400).json("Invalid username or password");
       }
 
       const passwordMatch = await compare(password, user.password);
@@ -21,7 +21,7 @@ const authenticateUserController = async(req:Request, res:Response): Promise<Res
             token: token,
           });
       } else {
-          throw new Error("Invalid username or password");
+          return res.status(400).json("Invalid username or password");
       }
     } catch (err) {
       return res.status(404).send()

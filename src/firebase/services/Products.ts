@@ -20,10 +20,10 @@ type Products = {
 	forSale:boolean;
 }
 
-const userColletionRef = collection(db, 'products');
+const prooductColletionRef = collection(db, 'products');
 
 export const getAllProducts = async ():Promise<Products[]> => {
-	const data = await getDocs(userColletionRef);
+	const data = await getDocs(prooductColletionRef);
 	const products = [];
     data.docs.map(collec => {
 		products.push({
@@ -56,8 +56,27 @@ export const getSpecificProduct = async (id: string): Promise<Products> => {
 	return data;
 };
 
+export const getProductsPerCategory = async (idCategory: string) => {
+	const data = await getDocs(prooductColletionRef);
+	const users = [];
+    data.docs.map(collec => {
+		if (collec.data().category_id === idCategory) {
+		  users.push({
+			id: collec.id,
+			product_name: collec.data().product_name,
+			img_url: collec.data().img_url,
+			price: collec.data().price,
+			user_id: collec.data().user_id,
+			status: collec.data().status,
+			forSale: collec.data().forSale,
+		  })
+		}
+	});
+	return users[0];
+};
+
 export const addProduct = async (data: Products) => {
-    await addDoc(userColletionRef, data);
+    await addDoc(prooductColletionRef, data);
 };
 
 export const updateProduct = async (data: Products) => {
