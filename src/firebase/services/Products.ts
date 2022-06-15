@@ -17,6 +17,7 @@ type Products = {
     price: number;
 	user_id:string;
 	status?:boolean;
+	data?:string;
 	forSale:boolean;
 }
 
@@ -34,6 +35,7 @@ export const getAllProducts = async ():Promise<Products[]> => {
 			price: collec.data().price,
 			user_id: collec.data().user_id,
 			status: collec.data().status,
+			data: collec.data().data,
 		})
 	});
 	return products;
@@ -50,6 +52,7 @@ export const getSpecificProduct = async (id: string): Promise<Products> => {
         price: collec.data().price,
 		user_id: collec.data().user_id,
 		status: collec.data().status,
+		data: collec.data().data,
 		forSale: collec.data().forSale,
 	};
 
@@ -58,21 +61,22 @@ export const getSpecificProduct = async (id: string): Promise<Products> => {
 
 export const getProductsPerCategory = async (idCategory: string) => {
 	const data = await getDocs(prooductColletionRef);
-	const users = [];
+	const products = [];
     data.docs.map(collec => {
 		if (collec.data().category_id === idCategory) {
-		  users.push({
+			products.push({
 			id: collec.id,
 			product_name: collec.data().product_name,
 			img_url: collec.data().img_url,
 			price: collec.data().price,
 			user_id: collec.data().user_id,
+			data: collec.data().data,
 			status: collec.data().status,
 			forSale: collec.data().forSale,
 		  })
 		}
 	});
-	return users[0];
+	return products;
 };
 
 export const addProduct = async (data: Products) => {

@@ -1,5 +1,8 @@
+//Components
+import dayjs from 'dayjs';
 import { Request, Response } from 'express';
 
+//DB
 import { addProduct } from '../../../firebase/services/Products';
 
 const createProductController = async(req:Request, res:Response): Promise<Response> =>{
@@ -8,6 +11,7 @@ const createProductController = async(req:Request, res:Response): Promise<Respon
     if (data.user_id === undefined) {
         Object.assign(data, {
             user_id: 'system',
+            data: dayjs().format('YYYY-MM-DD HH:mm:ss'),
             status: true
         });
     }

@@ -1,4 +1,8 @@
+//Components
+import dayjs from 'dayjs';
 import {Request, Response} from 'express';
+
+//DB
 import { updateProduct } from '../../../firebase/services/Products';
 
 const updateProductController = async(req:Request, res:Response): Promise<Response> =>{
@@ -7,6 +11,7 @@ const updateProductController = async(req:Request, res:Response): Promise<Respon
 
     Object.assign(data, {
        id: id,
+       data: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     });
 
     try {

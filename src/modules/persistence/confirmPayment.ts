@@ -5,7 +5,7 @@ import { updateProduct } from '../../firebase/services/Products';
 
 const confirmPayment = (req:Request, res:Response) => {
     const { products } = req.body;
-    const currentData = dayjs().format('YYYY-MM-DD HH:mm:ss')
+    const currentData = dayjs().format('YYYY-MM-DD HH:mm:ss');
     let count = false;
 
     products.forEach(product => { 

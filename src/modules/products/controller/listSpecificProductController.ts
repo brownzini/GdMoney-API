@@ -12,6 +12,7 @@ const listSpecificProductController = async(req:Request, res:Response): Promise<
             price: resp.price,
             user_id: resp.user_id,
             status: resp.status,
+            data: resp.data,
             forSale: resp.forSale,
         }).send();
       });
