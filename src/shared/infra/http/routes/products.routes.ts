@@ -27,7 +27,8 @@ productsRoutes.get(
 );
 
 productsRoutes.get(
-  "/bycategory/:id", 
+  "/bycategory/:id",
+  ensureAuthenticated,
   (req, res) => {
     listProductsByCategory(req, res)
   }

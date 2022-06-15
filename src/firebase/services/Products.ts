@@ -62,18 +62,18 @@ export const getSpecificProduct = async (id: string): Promise<Products> => {
 export const getProductsPerCategory = async (idCategory: string) => {
 	const data = await getDocs(prooductColletionRef);
 	const products = [];
-    data.docs.map(collec => {
+    data.docs.map(async collec => {
 		if (collec.data().category_id === idCategory) {
 			products.push({
-			id: collec.id,
-			product_name: collec.data().product_name,
-			img_url: collec.data().img_url,
-			price: collec.data().price,
-			user_id: collec.data().user_id,
-			data: collec.data().data,
-			status: collec.data().status,
-			forSale: collec.data().forSale,
-		  })
+				id: collec.id,
+				product_name: collec.data().product_name,
+				img_url: collec.data().img_url,
+				price: collec.data().price,
+				user_id: collec.data().user_id,
+				data: collec.data().data,
+				status: collec.data().status,
+				forSale: collec.data().forSale,
+			});
 		}
 	});
 	return products;
