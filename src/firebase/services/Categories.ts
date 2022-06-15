@@ -23,12 +23,7 @@ export const getAllCategories = async ():Promise<Categories[]> => {
     data.docs.map(collec => {
 		categories.push({
 			id: collec.id,
-			product_name: collec.data().product_name,
-			cateogry_id: collec.data().cateogry_id,
-			img_url: collec.data().img_url,
-			price: collec.data().price,
-			user_id: collec.data().user_id,
-			status: collec.data().status,
+			category_name: collec.data().category_name,
 		})
 	});
 	return categories;

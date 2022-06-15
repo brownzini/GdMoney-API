@@ -13,7 +13,6 @@ const categoriesRoutes = Router();
 categoriesRoutes.get(
   "/", 
   ensureAuthenticated,
-  ensureAdmin,
   (req, res) => {
     listAllCategoriesController(req, res)
   }
@@ -22,7 +21,6 @@ categoriesRoutes.get(
 categoriesRoutes.get(
   "/:id", 
   ensureAuthenticated,
-  ensureAdmin,
   (req, res) => {
       listSpecificCategoryController(req, res)
   }
