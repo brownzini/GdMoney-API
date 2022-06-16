@@ -26,7 +26,7 @@ const balanceBNB = async(
     setTimeout(() => {
         api.get(urlBalanceBNB, async(error, response, body) => {
             if(error) {
-                return res.status(400).send();
+               return res.status(400).json('Error in getting balance');
             }
             const result = JSON.parse(body).result;
             const value = Number(result)/fraction;
