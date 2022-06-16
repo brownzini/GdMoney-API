@@ -12,9 +12,9 @@ const listProductsByCategory = async(req: Request, res: Response): Promise<Respo
               username: users.username,
             });
           })
-          setTimeout(() => { 
+          //setTimeout(() => { 
              return res.status(200).json({ products: resp });
-          }, 3000);
+         // }, 1500);
         });
     } catch (err) {
         return res.status(404).json("Error in getting all products");
