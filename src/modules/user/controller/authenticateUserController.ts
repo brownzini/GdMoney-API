@@ -16,9 +16,10 @@ const authenticateUserController = async(req:Request, res:Response): Promise<Res
       const passwordMatch = await compare(password, user.password);
 
       if (passwordMatch) {
-          const token = await generateToken(user.id, 'initial');
+          const data = await generateToken(user.id, 'initial');
           return res.status(200).json({
-            token: token,
+            token: data.token,
+            id_rt: data.id_refresh_token,
           });
       } else {
           return res.status(400).json("Invalid username or password");
