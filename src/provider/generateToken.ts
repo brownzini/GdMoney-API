@@ -11,7 +11,7 @@ type Props = {
 const generateToken = async(id: string, type?: string):Promise<Props> => {
     const token = sign({}, auth.secret_token, {
         subject: id,
-        expiresIn: "600s"
+        expiresIn: "6000s"
     });
     let id_rt = '';
 
