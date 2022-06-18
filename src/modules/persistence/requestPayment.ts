@@ -11,7 +11,7 @@ const requestPayment = async(req:Request, res:Response) => {
                                ? auth.wallet_address_api 
                                : req.body.wallet_address;
 
-    const urlDetailsTransaction = detailsTransaction(wallet_address.toLowerCase(), auth.binance_api_key);
+    const urlDetailsTransaction = detailsTransaction(from, auth.binance_api_key);
 
     api.get(urlDetailsTransaction, (error, response, body) => {
         if(error) { 
@@ -21,7 +21,7 @@ const requestPayment = async(req:Request, res:Response) => {
         const data = JSON.parse(body).result;
         const currentData = dayjs().add(0, "minutes").unix();
 
-        const result = data.find(par => (currentData >= par.timeStamp && par.from === from));
+        const result = data.find(par => (currentData >= par.timeStamp && par.to === wallet_address));
 
         if (result === undefined) {
             return res.status(400).json('No transaction found');  
