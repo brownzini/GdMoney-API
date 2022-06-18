@@ -24,15 +24,15 @@ const requestPayment = async(req:Request, res:Response) => {
         const result = data.find(par => (currentData >= par.timeStamp && par.to === wallet_address));
 
         if (result === undefined) {
-            return res.status(400).json('No transaction found');  
+            return res.status(400).json({message:'No transaction found'});  
         }
 
         if (Number(result.value) < price) {
-            return res.status(400).json('Invalid price');  
+            return res.status(400).json({message:'Invalid price'});  
         }
 
         if (result.txreceipt_status === '0') {
-            return res.status(400).json('Fail transaction');    
+            return res.status(400).json({message:'Fail transaction'});    
         }
 
         if (result.txreceipt_status === '1') {
@@ -41,7 +41,7 @@ const requestPayment = async(req:Request, res:Response) => {
             });
         }
 
-        return res.status(400).json('Pending transaction'); 
+        return res.status(400).json({message:'Pending transaction'}); 
     });
 }
 
