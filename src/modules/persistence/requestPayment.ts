@@ -5,8 +5,6 @@ import { Request, Response } from 'express';
 import detailsTransaction from '../../config/blockchain/url/detailsTransaction';
 
 const requestPayment = async(req:Request, res:Response) => {
-    const fraction = 1000000000000000000;
-    
     const { from, price } = req.body;
     
     const wallet_address = (req.body.wallet_address === undefined) 
@@ -29,7 +27,7 @@ const requestPayment = async(req:Request, res:Response) => {
             return res.status(400).json('No transaction found');  
         }
 
-        if (Number(result.value)/fraction < price) {
+        if (Number(result.value) < price) {
             return res.status(400).json('Invalid price');  
         }
 
