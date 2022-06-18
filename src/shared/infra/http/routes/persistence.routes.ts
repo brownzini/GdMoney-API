@@ -15,7 +15,7 @@ persistenceRoutes.post(
    }
 );
 
-persistenceRoutes.get(
+persistenceRoutes.post(
    "/verify-wallet", 
    ensureAuthenticated,
    (req, res) => {
