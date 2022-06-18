@@ -15,7 +15,7 @@ const requestPayment = async(req:Request, res:Response) => {
 
     api.get(urlDetailsTransaction, (error, response, body) => {
         if(error) { 
-            return res.status(400).json('Error in request'); 
+            return res.status(400).json({message:'Error in request'}); 
         }
 
         const data = JSON.parse(body).result;
