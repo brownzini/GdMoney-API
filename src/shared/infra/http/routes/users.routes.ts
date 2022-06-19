@@ -19,8 +19,8 @@ usersRoutes.get(
   }
 );
 
-usersRoutes.get(
-  "/getid/:id", 
+usersRoutes.post(
+  "/getid", 
   (req, res) => {
     getUserID(req, res)
   }

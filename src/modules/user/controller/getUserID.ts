@@ -1,8 +1,6 @@
 import { verify } from "jsonwebtoken";
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import auth from "../../../config/auth";
-import { getUserProfile } from "../../../firebase/services/Users";
-
 export async function getUserID(request: Request, response: Response) {
     const authToken = request.headers.authorization
 
