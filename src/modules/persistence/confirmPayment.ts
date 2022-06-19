@@ -28,9 +28,9 @@ const confirmPayment = (req:Request, res:Response) => {
 
     setTimeout(() => { 
         if (count === true) { 
-            return res.status(400).json('Error in operation');
+            return res.status(400).json({message:'Error in operation'});
         }
-        return res.status(200).json("Success in operation");
+        return res.status(200).json({message:"Success in operation"});
     },3000)
 }
 
