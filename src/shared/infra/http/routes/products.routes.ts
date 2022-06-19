@@ -55,7 +55,6 @@ productsRoutes.post(
 productsRoutes.put(
   "/update/:id", 
   ensureAuthenticated,
-  ensureAdmin,
   (req, res) => {
     updateProductController(req, res)
   }
