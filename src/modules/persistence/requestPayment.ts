@@ -6,7 +6,8 @@ import detailsTransaction from '../../config/blockchain/url/detailsTransaction';
 
 const requestPayment = async(req:Request, res:Response) => {
     const { from, price } = req.body;
-    
+    const fraction = 1000000000000000000;
+
     const wallet_address = (req.body.wallet_address === undefined) 
                                ? auth.wallet_address_api 
                                : req.body.wallet_address;
@@ -27,7 +28,7 @@ const requestPayment = async(req:Request, res:Response) => {
             return res.status(400).json({message:'No transaction found'});  
         }
 
-        if (Number(result.value) < price) {
+        if ((Number(result.value)/fraction) < price) {
             return res.status(400).json({message:'Invalid price'});  
         }
 
