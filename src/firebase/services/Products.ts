@@ -63,7 +63,7 @@ export const getProductsPerCategory = async (idCategory: string) => {
 	const data = await getDocs(prooductColletionRef);
 	const products = [];
     data.docs.map(async collec => {
-		if (collec.data().category_id === idCategory) {
+		if (collec.data().category_id === idCategory && collec.data().forSale) {
 			products.push({
 				id: collec.id,
 				product_name: collec.data().product_name,
