@@ -4,9 +4,10 @@ import { listAllProductsController } from "../../../../modules/products/controll
 import createProductController from "../../../../modules/products/controller/createProductController";
 import updateProductController from "../../../../modules/products/controller/updateProductController";
 import { listProductsByCategory } from "../../../../modules/products/controller/listProductsByCategory";
+import { listProductsByUser } from "../../../../modules/products/controller/listProductsByUser";
 
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
-import { ensureAdmin } from "@shared/infra/middleware/ensureAdmin";
+import { ensureAdmin } from "../../../infra/middleware/ensureAdmin";
 
 const productsRoutes = Router();
 
@@ -31,6 +32,14 @@ productsRoutes.get(
   ensureAuthenticated,
   (req, res) => {
     listProductsByCategory(req, res)
+  }
+);
+
+productsRoutes.get(
+  "/byuser/:id",
+  ensureAuthenticated,
+  (req, res) => {
+    listProductsByUser(req, res)
   }
 );
 

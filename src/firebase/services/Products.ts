@@ -79,6 +79,21 @@ export const getProductsPerCategory = async (idCategory: string) => {
 	return products;
 };
 
+export const getProductsPerUser = async (user_id: string) => {
+	const data = await getDocs(prooductColletionRef);
+	const products = [];
+    data.docs.map(async collec => {
+		if (collec.data().user_id === user_id) {
+			products.push({
+				id: collec.id,
+				product_name: collec.data().product_name,
+				category_id: collec.data().category_id,
+			});
+		}
+	});
+	return products;
+};
+
 export const addProduct = async (data: Products) => {
     await addDoc(prooductColletionRef, data);
 };
