@@ -7,10 +7,10 @@ import deleteUserController from "../../../../modules/user/controller/deleteUser
 import listProfileUserController from "../../../../modules/user/controller/listProfileUserController";
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
 import getBnbBalanceUserController from "../../../../modules/user/controller/getBnbBalanceUserController";
+import { getUserID } from "../../../../modules/user/controller/getUserID";
 
 const usersRoutes = Router();
 
-//List all users - GET [OK]
 usersRoutes.get(
   "/", 
   ensureAuthenticated, 
@@ -19,7 +19,13 @@ usersRoutes.get(
   }
 );
 
-//List profile user - GET [OK]
+usersRoutes.get(
+  "/getid/:id", 
+  (req, res) => {
+    getUserID(req, res)
+  }
+);
+
 usersRoutes.get(
   "/profile/:id", 
   ensureAuthenticated, 
@@ -28,7 +34,6 @@ usersRoutes.get(
   }
 );
 
-//Create user - POST [OK]
 usersRoutes.post(
   "/create", 
   (req, res) => {
@@ -36,7 +41,6 @@ usersRoutes.post(
   }
 );
 
-//Update user - PUT [OK]
 usersRoutes.put(
   "/update/:id", 
   ensureAuthenticated, 
@@ -45,7 +49,6 @@ usersRoutes.put(
   }
 );
 
-//Delete user - DELETE [OK]
 usersRoutes.delete(
   "/delete/:id", 
   ensureAuthenticated, 
