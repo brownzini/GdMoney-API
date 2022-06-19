@@ -17,7 +17,7 @@ const requestPayment = async(req:Request, res:Response) => {
         if(error) { 
             return res.status(400).json({message:'Error in request'}); 
         }
-
+        
         const data = JSON.parse(body).result;
         const currentData = dayjs().add(0, "minutes").unix();
 

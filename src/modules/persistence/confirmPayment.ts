@@ -18,7 +18,6 @@ const confirmPayment = (req:Request, res:Response) => {
         }).catch(err => { 
             count = true;
         });
-
         const data:any = {
             id: product.product_address,
             forSale: false,
