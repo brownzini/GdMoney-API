@@ -11,7 +11,7 @@ import { db } from '../firebase';
 const transactionColletionRef = collection(db, 'transaction_history');
 
 type Transaction = {
-	product_address:string;
+	id:string;
 	product_name:string;
 	user_id:string;
 	status:string;
@@ -30,7 +30,7 @@ export const getAllTransactions = async (id_refresh_token: string):Promise<Trans
 
     return {
 		data: properties.data,
-		product_address: properties.product_address,
+		id: properties.id,
 		product_name: properties.product_name,
 		status: properties.status,
 		user_id: properties.user_id,

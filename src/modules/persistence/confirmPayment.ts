@@ -11,7 +11,7 @@ const confirmPayment = (req:Request, res:Response) => {
     try {
         products.forEach(product => { 
             addTransaction({
-                product_address: product.product_address,
+                id: product.id,
                 product_name: product.product_name,
                 user_id: product.user_id,
                 data: currentData,
@@ -20,7 +20,7 @@ const confirmPayment = (req:Request, res:Response) => {
                 count = true;
             });
             const data:any = {
-                id: product.product_address,
+                id: product.id,
                 forSale: false,
                 user_id: product.user_id,
             };
