@@ -5,7 +5,7 @@ import { listTransactionsController } from "../../../../modules/transactions/con
 const transactions_historyRoutes = Router();
 
 transactions_historyRoutes.get(
-    "/", 
+    "/:id", 
     ensureAuthenticated,
     (req, res) => {
         listTransactionsController(req, res)
