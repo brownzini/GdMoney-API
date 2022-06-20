@@ -90,6 +90,7 @@ export const getProductsPerUser = async (user_id: string) => {
 				category_id: collec.data().category_id,
 				img_url: collec.data().img_url,
 				forSale: collec.data().forSale,
+				price: collec.data().price,
 			});
 		}
 	});
