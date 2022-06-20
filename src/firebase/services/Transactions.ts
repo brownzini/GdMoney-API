@@ -3,7 +3,7 @@ import {
 	addDoc,
 	doc,
 	deleteDoc,
-	getDoc,
+	getDocs,
 } from 'firebase/firestore';
 
 import { db } from '../firebase';
@@ -11,30 +11,24 @@ import { db } from '../firebase';
 const transactionColletionRef = collection(db, 'transaction_history');
 
 type Transaction = {
-	id:string;
 	product_name:string;
-	user_id:string;
 	status:string;
 	data: string;
 }
 
-export const getAllTransactions = async (id_refresh_token: string):Promise<Transaction> => {
-	const rtDoc = doc(db, 'transaction_history', id_refresh_token);
-	const collec = await getDoc(rtDoc);
-
-	const properties = collec.data();
-
-    if (properties === undefined) {
-        return null;
-    }
-
-    return {
-		data: properties.data,
-		id: properties.id,
-		product_name: properties.product_name,
-		status: properties.status,
-		user_id: properties.user_id,
-	};
+export const getAllTransactions = async (user_id: string):Promise<Transaction[]> => {
+	const data = await getDocs(transactionColletionRef);
+	const products = [];
+    data.docs.map(async collec => {
+		if (collec.data().user_id === user_id) {
+			products.push({
+				product_name: collec.data().product_name,
+				status: collec.data().status,
+				data: collec.data().data,
+			});
+		}
+	});
+	return products;
 }
 
 export const addTransaction = async (data:Transaction) => {
