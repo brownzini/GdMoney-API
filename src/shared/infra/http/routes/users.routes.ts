@@ -9,6 +9,7 @@ import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
 import getBnbBalanceUserController from "../../../../modules/user/controller/getBnbBalanceUserController";
 import { getUserID } from "../../../../modules/user/controller/getUserID";
 import changePasswordUserController from "../../../../modules/user/controller/changePasswordUserController";
+import changeDataUserController from "../../../../modules/user/controller/changeDataUserController";
 
 const usersRoutes = Router();
 
@@ -59,11 +60,20 @@ usersRoutes.delete(
 );
 
 /* change Password */
-usersRoutes.post(
+usersRoutes.put(
   "/changepassword/:id", 
   ensureAuthenticated, 
   (req, res) => {
     changePasswordUserController(req, res)
+  }
+);
+
+/* update username or wallet address */
+usersRoutes.put(
+  "/changedata/:id", 
+  ensureAuthenticated, 
+  (req, res) => {
+    changeDataUserController(req, res)
   }
 );
 

@@ -27,7 +27,7 @@ const changePasswordUserController = async(req:Request, res:Response): Promise<R
             return res.status(400).json({message:'Error'});
           }
       } else {
-          return res.status(400).json("Invalid username or password");
+          return res.status(400).json({message:"Invalid username or password"});
       }
     } catch (err) {
       return res.status(404).send()
