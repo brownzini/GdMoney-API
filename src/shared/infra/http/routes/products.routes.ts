@@ -13,7 +13,7 @@ const productsRoutes = Router();
 
 productsRoutes.get(
   "/", 
-  ensureAuthenticated,
+ // ensureAuthenticated,
   (req, res) => {
     listAllProductsController(req, res)
   }
