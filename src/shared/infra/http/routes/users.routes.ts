@@ -8,6 +8,7 @@ import listProfileUserController from "../../../../modules/user/controller/listP
 import { ensureAuthenticated } from "../../middleware/ensureAuthenticate";
 import getBnbBalanceUserController from "../../../../modules/user/controller/getBnbBalanceUserController";
 import { getUserID } from "../../../../modules/user/controller/getUserID";
+import changePasswordUserController from "../../../../modules/user/controller/changePasswordUserController";
 
 const usersRoutes = Router();
 
@@ -54,6 +55,15 @@ usersRoutes.delete(
   ensureAuthenticated, 
   (req, res) => {
     deleteUserController(req, res)
+  }
+);
+
+/* change Password */
+usersRoutes.post(
+  "/changepassword/:id", 
+  ensureAuthenticated, 
+  (req, res) => {
+    changePasswordUserController(req, res)
   }
 );
 
