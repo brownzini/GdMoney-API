@@ -30,7 +30,7 @@ export const getAllProducts = async ():Promise<Products[]> => {
 		products.push({
 			id: collec.id,
 			product_name: collec.data().product_name,
-			category_id: collec.data().cateogry_id,
+			category_id: collec.data().category_id,
 			img_url: collec.data().img_url,
 			price: collec.data().price,
 			user_id: collec.data().user_id,
