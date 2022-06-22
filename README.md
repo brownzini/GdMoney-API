@@ -5,9 +5,9 @@ based on bsc network (bep20) and bnb payment token
 
 ## 💡 Technologies
 
-NodeJs
-Typescript
-Firebase
+NodeJs<br />
+Typescript<br />
+Firebase<br />
 
 ## 🚀 Starting
 Run the server
